@@ -2,10 +2,7 @@
 
 <% @locations.each do |location| %>
   <%= location.name %>
+  <%= link_to 'itineraries', location_itineraries_path(location) %>
 <% end %>
 
 <hr>
-<%#
-<% @locations.each do |location| %>
-  <%#= @location.itinerary.name %>
-  <%#= @location.itinerary.description %>

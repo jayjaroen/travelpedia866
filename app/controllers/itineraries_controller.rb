@@ -17,11 +17,16 @@ class ItinerariesController < ApplicationController
 
   def create
     @itinerary = Itinerary.new(itinerary_params)
+    @itinerary.user_id = current_user.id
     # @itinerary.location = @location (how can itinerary go back to the location)
     # what is the difference between .save & .save!
-     redirect_to itinerary_path(@itinerary) if @itinerary.save
-
+    redirect_to itinerary_path(@itinerary) if @itinerary.save
   end
+
+  def update
+    # upd
+  end
+
   # there is no user id yet/ not created
     #  what is the link between itinerary and location (after the location has been created?)
 
