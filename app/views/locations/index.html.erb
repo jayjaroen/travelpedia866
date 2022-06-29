@@ -1,7 +1,15 @@
-<h1 class="font-bold text-4xl text-pink-600"> Let's go on holiday </h1>
+<h1 class="text-4xl text-center text-green-700"> Let's go on holiday </h1>
 
 <% @locations.each do |location| %>
   <%= location.name %>
 <% end %>
 
 <hr>
+
+<% @itineraries.each do |itinerary| %>
+  <%= itinerary.name %>
+  <hr>
+  <%= itinerary.description %>
+  <%= itinerary.comment %>
+  <%= itinerary.location %>
+<% end %>
