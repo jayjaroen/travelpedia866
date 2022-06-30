@@ -2,13 +2,12 @@ class ItinerariesController < ApplicationController
 
   def index
     @location = Location.find(params[:location_id])
-    @itineraries = Itinerary.all
-    @itinerary = Itinerary.new
+    @itineraries = @location.itineraries
     # create the Itinerary on the index page
   end
 
   def show
-    @itinerary = Itinerary.new
+    @itinerary = Itinerary.find(params[:itinerary_id])
   end
 
   def new
@@ -20,7 +19,11 @@ class ItinerariesController < ApplicationController
     @itinerary.user_id = current_user.id
     # @itinerary.location = @location (how can itinerary go back to the location)
     # what is the difference between .save & .save!
-    redirect_to itinerary_path(@itinerary) if @itinerary.save
+    if @itinerary.save
+      redirect_to itinerary_path(@itinerary)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def update

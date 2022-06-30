@@ -2,7 +2,7 @@
 
 <% @locations.each do |location| %>
   <%= location.name %>
-  <%= link_to 'itineraries', location_itineraries_path(location) %>
+  <%= link_to 'itineraries', location_itineraries_path(location, @itineraries) %>
 <% end %>
 
 <hr>
