@@ -19,8 +19,8 @@
 <% if user_signed_in? %>
 <ul>
       <li>
-      <%= link_to "Login", new_user_session_path, class:"text-xl hover:text-cyan-500 duration-500" %>
-       logout
+      Profile
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
       </li>
     </ul>
 
