@@ -6,4 +6,8 @@ class User < ApplicationRecord
   has_many :itineraries, dependent: :destroy
   has_many :booking_requests
 
+  def delete
+    @user.destroy
+  end
+
 end
