@@ -1,15 +1,26 @@
-<nav class="p-5 bg-white shadow md:flex md:items-center md:justify-between">
+<%# <nav class="p-5 bg-white shadow md:flex md:items-center md:justify-between"> %>
+<nav class="p-5 bg-white flex justify-between items-center p-6 px-6 lg:px-0 container mx-auto">
   <div>
     <span class="text-2xl font-[Poppins] cursor-pointer">
-      WeTravel
+      Travel China
     </span>
   </div>
+
+  <input class="peer hidden" type="checkbox" name="hamburger" id="hamburger"/>
+    <label class="perr-checked:hambuger block relative cursor-pointer lg:hidden border-2 border-gray-300 peer-checked:border-2 peer-checked:border-white p-3 rounded-md transition-all" for="hamburger">
+      <div class="m-auto w-6 h-0.5 rounded bg-gray-300 transition-all duration-300"></div>
+      <div class="m-auto mt-2 h-0.5 rounded bg-gray-300 transition-all duration-300"></div>
+    </label>
+
+
+
+
 
 <% if user_signed_in? %>
 <ul>
       <li>
-      <%= link_to "Login", new_user_session_path, class:"text-xl hover:text-cyan-500 duration-500" %>
-       logout
+      Profile
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
       </li>
     </ul>
 

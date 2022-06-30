@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :itineraries, only: [:index]
     end
 
-  resources :itineraries, only: [:new, :create, :show] do
+  resources :itineraries, only: [ :new, :create, :show] do
     resources :booking_requests, only: [:create]
     end
 

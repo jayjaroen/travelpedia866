@@ -1,5 +1,5 @@
 class ItinerariesController < ApplicationController
-
+# before_action:
   def index
     @location = Location.find(params[:location_id])
     @itineraries = @location.itineraries
@@ -7,16 +7,21 @@ class ItinerariesController < ApplicationController
   end
 
   def show
-    @itinerary = Itinerary.find(params[:itinerary_id])
+    @itinerary = Itinerary.find(params[:id])
   end
 
   def new
+
     @itinerary = Itinerary.new
   end
 
   def create
+    # @location = Location.find(params[:location_id])
     @itinerary = Itinerary.new(itinerary_params)
-    @itinerary.user_id = current_user.id
+    @itinerary.user = current_user
+    p "i'm here again#{@itinerary}"
+    # @itinerary.location = @location
+    # p "#{@itinerary.location}"
     # @itinerary.location = @location (how can itinerary go back to the location)
     # what is the difference between .save & .save!
     if @itinerary.save

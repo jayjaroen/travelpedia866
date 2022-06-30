@@ -1,6 +1,7 @@
 <div class="container">
   <h3 class="form-font"> Create Your Itinerary!!  </h3>
   <%= simple_form_for (@itinerary) do |f| %>
+    <%= f.association :location %>
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :image %>
