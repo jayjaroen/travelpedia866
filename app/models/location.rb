@@ -1,4 +1,4 @@
 class Location < ApplicationRecord
-  validates :name, :description, presence: true
+  validates :name, presence: true
   has_many :itineraries
 end
