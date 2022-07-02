@@ -1,13 +1,14 @@
 
 <main class="background">
-<h1 class="text-center text-2xl"> Itineraries</h1>
+<h1 class="text-center text-2xl text-green-700 font-bold"> Itineraries</h1>
+<%= link_to "Create", new_itinerary_path , class:"create-button" %>
   <div class="container">
     <div class="cards">
       <% @itineraries.each do |itinerary| %>
         <div class="list-card-category">
           <%= itinerary.name %>
          <div>Description: <%= itinerary.description %>
-         <%= link_to "Create", new_itinerary_path %>
+
          </div>
         </div>
       <% end %>
