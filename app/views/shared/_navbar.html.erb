@@ -1,7 +1,7 @@
-<%# <nav class="p-5 bg-white shadow md:flex md:items-center md:justify-between"> %>
-<nav class="p-5 bg-white flex justify-between items-center p-6 px-6 lg:px-0 container mx-auto">
+<%# <nav class="p-3.5 bg-white shadow md:flex md:items-center md:justify-between"> %>
+<nav class="p-3.5 bg-white flex justify-between items-center p-6 px-6 lg:px-0 container mx-auto shadow-lg">
   <div>
-    <span class="text-2xl font-[Poppins] cursor-pointer">
+    <span class="text-2xl ml-5 cursor-pointer">
       Travel China
     </span>
   </div>
@@ -27,8 +27,8 @@
 <% else %>
     <ul>
       <li>
-      <%= link_to "Login", new_user_session_path, class:"text-xl hover:text-cyan-500 duration-500" %>
-       <%= link_to "Register", new_user_registration_path, class:"text-xl hover:text-cyan-500 duration-500 bg-yellow-200 p-1.5 ml-1.5 rounded-2xl" %>
+      <%= link_to "Login", new_user_session_path, class:"text-l hover:text-cyan-500 duration-500" %>
+       <%= link_to "Register", new_user_registration_path, class:"text-l text-white duration-500 bg-green-700 p-2 ml-1.5 mr-5 rounded-2xl" %>
       </li>
     </ul>
 <% end %>
