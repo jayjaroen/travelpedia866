@@ -1,10 +1,11 @@
 
 <main class="background">
-  <h1 class="font-bold text-4xl text-green-600 text-center"> Let's go on holiday </h1>
+  <h1 class="font-bold text-4xl text-green-700 text-center"> Pick a destination </h1>
     <div class="container">
 
       <div class="cards">
         <% @locations.each do |location| %>
+
         <div class="list-card-category">
           <%= location.name %>
           <%= link_to 'itineraries', location_itineraries_path(location, @itineraries) %>
