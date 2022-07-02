@@ -1,7 +1,10 @@
 <main class="background">
-
-  <h1 class="text-grenn-700 text-4xl"><%= @itinerary.name %></h1>
-    <%= @itinerary.description %>
-    <%= @itinerary.image%>
-    <%= @itinerary.comment%>
+  <div class="container-center">
+    <div class="container-style">
+    <h1 class="text-green-700 text-4xl underline decoration-0.5"><%= @itinerary.name %></h1>
+    <div>Description: <%= @itinerary.description %></div>
+    <div><%= @itinerary.image%></div>
+    <div> Comments: <%= @itinerary.comment%></div>
+    </div>
+  </div>
 </main>
