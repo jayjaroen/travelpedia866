@@ -1,6 +1,14 @@
-<h1> Let's go on holiday </h1>
-
-<% @itineraries.each do |itinerary| %>
-  <%= itinerary.name %>
-  <%= itinerary.description %>
-<% end %>
+<main class="background">
+<h1 class="text-center text-2xl"> Itineraries</h1>
+  <div class="container">
+    <div class="cards">
+      <% @itineraries.each do |itinerary| %>
+        <div class="list-card-category">
+          <%= itinerary.name %>
+         <div>Description: <%= itinerary.description %>
+         </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</main>
