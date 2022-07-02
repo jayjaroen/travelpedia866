@@ -1,5 +1,4 @@
 class Itinerary < ApplicationRecord
-  belongs_to :user
   belongs_to :location
   validates :name, uniqueness: true
   validates :name, :description, presence: true
