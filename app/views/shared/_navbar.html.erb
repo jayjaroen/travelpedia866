@@ -1,36 +1,35 @@
-<%# <nav class="p-3.5 bg-white shadow md:flex md:items-center md:justify-between"> %>
-<nav class="p-3.5 bg-stone-50 flex justify-between items-center p-6 px-6 lg:px-0 mx-auto shadow-lg">
+<nav class="bg-gray-100 flex text-green-700 items-center justify-between flex-wrap p-3" >
   <div>
-    <span class="text-2xl ml-5 cursor-pointer font-bold text-green-700">
+  <!---Logo/name of website-->
+    <span class="text-2xl ml-2 cursor-pointer font-bold text-green-700">
       <%= link_to "Travel China", locations_path %>
     </span>
   </div>
+  <!---Toggle button -->
+  <div class="block lg:hidden">
+    <button
+      onclick="toggle_nav()"
+      class="flex flex-col px-3">
+        <div class="w-6 h-1 bg-green-700 rounded"></div>
+        <div class="w-6 h-1 bg-green-700 my-1 rounded"></div>
+        <div class="w-6 h-1 bg-green-700 rounded"></div>
+    </button>
+  </div>
+  <!--- nav menu -->
+  <div
+    class="w-full lg:w-auto block lg:flex lg:items-center lg:inline-block hidden"
+    id="navbar">
 
-  <input class="peer hidden" type="checkbox" name="hamburger" id="hamburger"/>
-    <label class="perr-checked:hambuger block relative cursor-pointer lg:hidden border-2 border-gray-300 peer-checked:border-2 peer-checked:border-white p-3 rounded-md transition-all" for="hamburger">
-      <div class="m-auto w-6 h-0.5 rounded bg-gray-300 transition-all duration-300"></div>
-      <div class="m-auto mt-2 h-0.5 rounded bg-gray-300 transition-all duration-300"></div>
-    </label>
+    <div class="lg:flex-grow text-center">
 
+      <% if user_signed_in? %>
+          Profile
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"text-l text-white hover:bg-green-600  bg-green-700 p-2 ml-1.5 rounded-2xl lg:inline-block block" %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, class:"text-l duration-500 lg:inline-block block hover:text-green-700 mb-2" %>
+        <%= link_to "Register", new_user_registration_path, class:"text-l text-white hover:bg-green-600  bg-green-700 p-2 ml-1.5 rounded-2xl lg:inline-block block" %>
+      <% end %>
 
-
-
-
-<% if user_signed_in? %>
-<ul>
-      <li>
-      Profile
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-      </li>
-    </ul>
-
-<% else %>
-    <ul>
-      <li>
-      <%= link_to "Login", new_user_session_path, class:"text-l hover:text-cyan-500 duration-500" %>
-       <%= link_to "Register", new_user_registration_path, class:"text-l text-white duration-500 bg-green-700 p-2 ml-1.5 mr-5 rounded-2xl" %>
-      </li>
-    </ul>
-<% end %>
-
+    </div>
+  </div>
 </nav>
