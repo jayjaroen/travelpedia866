@@ -1,6 +1,16 @@
 // Place all the styles related to the locations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+// .cards {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr 1fr;
+//   grid-gap: 30px;
+//   padding-top: 10px;
+//   padding-bottom: 30px;
+//   margin-left:20px;
+//   margin-right:20px;
+// }
+
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -8,6 +18,20 @@
   padding-top: 10px;
   padding-bottom: 30px;
 }
+
+// .list-card-category {
+//   display: flex;
+//   color: rgb(233, 64, 64);
+//   opacity: 0.8;
+//   font-size: 20px;
+//   font-weight: bold;
+//   display: flex;
+//   text-align: center;
+//   text-shadow: 1px 1px 3px rgb(3, 70, 34);
+//   border-radius: 10px;
+//   box-shadow: 0 0 15px #06283D;
+//   margin-top: 0;
+// }
 
 .list-card-category {
   background-size: cover;
@@ -17,18 +41,54 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: rgb(0, 74, 35);
-  background-color: white;
-  opacity: 0.8;
+  color: white;
   font-size: 20px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgb(3, 70, 34);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px #06283D;
-  margin-top: 25px;
-  margin-left: 20px;
-  padding:5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
+// .location-text {
+//   position: absolute;
+
+// }
+
+// .list-card-category {
+//   background-size: cover;
+//   height: 100%;
+//   width:100%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+
+//   color: rgb(255, 255, 255);
+//   text-align: center;
+//   opacity: 0.8;
+//   font-size: 20px;
+//   font-weight: bold;
+//   text-shadow: 1px 1px 3px rgb(3, 70, 34);
+//   border-radius: 10px;
+//   box-shadow: 0 0 15px #06283D;
+//   margin-top: 0;
+//   overflow: hidden;
+// }
+
+// .img-show {
+//   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+//   filter: grayscale(100%);
+//   object-fit:scale-down;
+//   height:100%;
+//   width:100%;
+//   padding:0;
+//   margin:0;
+//   border-radius: 5px;
+
+// }
+
+
+
+
 
 .background {
   position:absolute;

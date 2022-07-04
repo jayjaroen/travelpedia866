@@ -1,16 +1,24 @@
 
 <main class="background">
   <h1 class="font-bold text-4xl text-green-700 text-center"> Pick a destination </h1>
-    <div class="container">
+    <div class="cards">
 
-      <div class="cards">
-        <% @locations.each do |location| %>
+      <% @locations.each do |location| %>
 
-        <div class="list-card-category">
-          <%= location.name %>
-          <%= link_to 'itineraries', location_itineraries_path(location, @itineraries) %>
-        </div>
+        <div class="list-card-category" style="background-image:url(<%= image_tag location.image %>)" >
+          <%= link_to location_itineraries_path(location, @itineraries) do %>
+          <!--- background img -->
+          <%# <%= image_tag location.image, class:"img-show" %>
+          <!--- text -->
+            <div class="text">
+              <div><%= location.description %></div>
+              <div><%= location.name %></div>
+            </div>
+
+            <% end %>
+          </div>
+
       <% end %>
+
     </div>
-  </div>
 <main>
