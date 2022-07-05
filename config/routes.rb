@@ -8,8 +8,14 @@ Rails.application.routes.draw do
     end
 
   resources :itineraries, only: [ :new, :create, :show] do
-    resources :booking_requests, only: [:create]
+    resources :booking_requests, only: [:index, :new, :create]
     end
+
+  resources :users, only:[:show] do
+    resources :itineraries, only: [:index]
+    resources :booking_requests, only: [:index]
+  end
+
 
   # resources :users, only:[:show] do
   #   resources :booking_requests, only: [:show]
