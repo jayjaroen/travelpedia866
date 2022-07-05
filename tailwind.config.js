@@ -5,7 +5,13 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      // scale: [ 'active', 'hover', 'group-hover'],
+    //   width: ['responsive', 'hover', 'group-hover'],
+    // height: ['responsive', 'hover', 'focus', 'group-hover'],
+
+    },
+
   },
   plugins: [],
 }
