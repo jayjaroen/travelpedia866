@@ -5,11 +5,10 @@
 
       <% @locations.each do |location| %>
 
-        <div class="list-card-category" style="background-image:url(<%= image_tag location.image %>)" >
+        <div class="list-card-category">
           <%= link_to location_itineraries_path(location, @itineraries) do %>
           <!--- background img -->
-          <%# <%= image_tag location.image, class:"img-show" %>
-          <!--- text -->
+          <%= image_tag location.image, class:"img-show" %>
             <div class="text">
               <div><%= location.description %></div>
               <div><%= location.name %></div>
