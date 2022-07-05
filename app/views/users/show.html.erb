@@ -1,1 +1,5 @@
-<h1>Hi User!</h1>
+<h1>Hi <%= @user.email %></h1>
+<% @booking_requests.each do |booking_request| %>
+  <%= booking_request.itinerary.name %>
+  <%= booking_request.booking_status %>
+<% end %>

@@ -11,7 +11,6 @@ class ItinerariesController < ApplicationController
   end
 
   def new
-
     @itinerary = Itinerary.new
   end
 
@@ -20,10 +19,6 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.user = current_user
     p "i'm here again#{@itinerary}"
-    # @itinerary.location = @location
-    # p "#{@itinerary.location}"
-    # @itinerary.location = @location (how can itinerary go back to the location)
-    # what is the difference between .save & .save!
     if @itinerary.save
       redirect_to itinerary_path(@itinerary)
     else

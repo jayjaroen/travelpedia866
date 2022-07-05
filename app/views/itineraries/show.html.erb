@@ -6,5 +6,9 @@
     <div><%= @itinerary.image%></div>
     <div> Comments: <%= @itinerary.comment%></div>
     </div>
+    <div>
+    <%= link_to 'Join', itinerary_booking_requests_path(@itinerary), method: :post %>
+    </div>
+
   </div>
 </main>
