@@ -1,5 +1,4 @@
 class BookingRequestsController < ApplicationController
-before_action :find_booking_requests,:only [:edit, :update]
   def new
   end
 
@@ -13,10 +12,12 @@ before_action :find_booking_requests,:only [:edit, :update]
   end
 
   def edit
+    find_booking_request
   end
 
   def update
-
+    find_booking_request
+    @booking_request.update(booking_request_params)
   end
 
   private

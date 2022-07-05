@@ -4,3 +4,5 @@ class UsersController < ApplicationController
     @booking_requests = @user.booking_requests
   end
 end
+# if the booking request of itinerary = current user, then display all the booking request
+# if you are making request, see the booking status

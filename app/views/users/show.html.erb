@@ -1,5 +1,7 @@
-<h1>Hi <%= @user.email %></h1>
-<% @booking_requests.each do |booking_request| %>
-  <%= booking_request.itinerary.name %>
-  <%= booking_request.booking_status %>
-<% end %>
+<h1>Hi <%= @user.first_name %></h1>
+<hr>
+<%# if @booking_request.user.id == current_user.id %>
+  <% @booking_requests.each do |booking_request| %>
+    <%= booking_request.itinerary.name %>
+    <%= booking_request.booking_status %>
+  <% end %>
