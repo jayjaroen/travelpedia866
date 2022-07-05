@@ -1,5 +1,5 @@
 class BookingRequestsController < ApplicationController
-before_action :find_booking_requests,:only [:edit, :update]
+
   def new
   end
 
