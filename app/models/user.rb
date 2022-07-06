@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :itineraries, dependent: :destroy
-  has_many :booking_requests
+  has_many :booking_requests # the booking requests created by user
 
   def delete
     @user.destroy

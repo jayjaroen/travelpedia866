@@ -13,10 +13,12 @@ class BookingRequestsController < ApplicationController
   end
 
   def edit
+    find_booking_request
   end
 
   def update
-
+    find_booking_request
+    @booking_request.update(booking_request_params)
   end
 
   private
