@@ -1,13 +1,13 @@
 <main class="background">
-  <div class="container-center">
-    <div class="container-style">
-    <h1 class="text-green-700 text-4xl underline decoration-0.5"><%= @itinerary.name %></h1>
-    <div>Description: <%= @itinerary.description %></div>
-    <div><%= @itinerary.image%></div>
-    <div> Comments: <%= @itinerary.comment%></div>
-    </div>
-    <div>
-    <%= link_to 'Join', itinerary_booking_requests_path(@itinerary), method: :post %>
+  <div class="flex justify-center items-center">
+    <div class="bg-white h-96 w-100 rounded mt-5 relative rounded p-5">
+      <h1 class="text-green-700 text-3xl underline decoration-0.5"><%= @itinerary.name %></h1>
+     <%# <div> Province: <%= @location.name %>
+        <%= cl_image_tag @itinerary.photo.key, :width=>200, :height=>150 %>
+        <div>Description: <%= @itinerary.description %></div>
+        <div><%= @itinerary.image%></div>
+        <div> Comments: <%= @itinerary.comment%></div>
+        <%= link_to 'Join', itinerary_booking_requests_path(@itinerary), method: :post, class:"absolute bottom-0 transform translate-x-4.5 bg-green-700 hover:bg-green-600 text-white p-2 rounded mb-2" %>
     </div>
 
   </div>
