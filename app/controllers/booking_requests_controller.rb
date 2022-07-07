@@ -13,12 +13,14 @@ class BookingRequestsController < ApplicationController
   end
 
   def edit
-    find_booking_request
+    # find_booking_request
+    # @booking_request.user.id == current_user.id
   end
 
   def update
     find_booking_request
-    @booking_request.update(booking_request_params)
+    @booking_request.update!(booking_status: "accepted")
+    redirect_to user_path(current_user)
   end
 
   private
@@ -31,3 +33,6 @@ class BookingRequestsController < ApplicationController
     params.require(:BookingRequest).permit(:booking_status, :user_id, :itinerary_id)
   end
 end
+
+#controller for accept +routes to accept
+#controller for decline

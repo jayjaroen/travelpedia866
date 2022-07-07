@@ -27,8 +27,15 @@ class ItinerariesController < ApplicationController
     end
   end
 
+  def edit
+    find_itinerary
+    @itinerary.user.id == current_user.id
+  end
+
   def update
-    # upd
+    find_itinerary
+    @itinerary.update(itinerary_params)
+    redirect_to user_path(current_user)
   end
 
   # there is no user id yet/ not created
