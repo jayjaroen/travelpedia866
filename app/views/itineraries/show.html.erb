@@ -1,14 +1,31 @@
 <main class="background">
-  <div class="flex justify-center items-center">
-    <div class="bg-white h-96 w-100 rounded mt-5 relative rounded p-5">
-      <h1 class="text-green-700 text-3xl underline decoration-0.5"><%= @itinerary.name %></h1>
-     <%# <div> Province: <%= @location.name %>
-        <%= cl_image_tag @itinerary.photo.key, :width=>200, :height=>150 %>
-        <div>Description: <%= @itinerary.description %></div>
-        <div><%= @itinerary.image%></div>
-        <div> Comments: <%= @itinerary.comment%></div>
-        <%= link_to 'Join', itinerary_booking_requests_path(@itinerary), method: :post, class:"absolute bottom-0 transform translate-x-4.5 bg-green-700 hover:bg-green-600 text-white p-2 rounded mb-2" %>
+  <div class="flex">
+
+    <div class="width-1/2">
+      <%# <div class="flex justify-center items-center"> %>
+        <div class="bg-white h-96 w-full rounded mt-5 relative rounded p-5 pl-5 ml-8">
+          <h1 class="text-green-700 text-3xl underline decoration-0.5"><%= @itinerary.name %></h1>
+
+            <!---one photo -->
+            <%= cl_image_tag @itinerary.photo.key, :width=>200, :height=>150 %>
+            <!--- iterate to display multiple images -->
+            <%# <% @itinerary.photos.each do |photo| %>
+            <%# <%= cl_image_tag photo.key, :width=>200, :height=>150 %>
+            <%# <% end %>
+
+            <div>Description: <%= @itinerary.description %></div>
+            <div><%= @itinerary.image%></div>
+            <div> Comments: <%= @itinerary.comment%></div>
+            <%= link_to 'Join', itinerary_booking_requests_path(@itinerary), method: :post, class:"absolute bottom-0 transform translate-x-4.5 bg-green-700 hover:bg-green-600 text-white p-2 rounded mb-2" %>
+        </div>
+      <%# </div> %>
     </div>
 
+      <div class="width-1/2 ml-14">
+      <div class="flex flex=col">
+          <div>Created by </div>
+          <div class="text-xl bg-white p-3 text-green-700 border-dashed ">Bookings</div>
+      </div>
+      </div>
   </div>
 </main>
