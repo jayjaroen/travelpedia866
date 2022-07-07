@@ -2,17 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.container-center {
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  // flex-direction: column;
-}
+// .container-center {
+//   margin: auto;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   text-align: center;
+//   // flex-direction: column;
+// }
 
-.container-style {
-  background-color: white;
-  height:auto;
-  padding: 100px;
-  margin-top: 30px;
+// .container-style {
+//   background-color: white;
+//   height:500px;
+//   width: 750px;
+//   margin-top: 30px;
+// }
+
+.new-form {
+  height: 100px;
+  width: 300px;
 }
