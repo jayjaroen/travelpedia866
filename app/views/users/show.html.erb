@@ -1,26 +1,40 @@
 <main class="background">
-  <div>
+
+    <div class="flex flex-col">
+      <!---User profile section -->
+      <!---Name-->
+        <div class="m-4 rounded p-4 opacity-90 w-64">
+          <div  class="text-green-800 text-4xl"><%= @user.first_name.upcase %> <%=  @user.last_name.upcase %></div>
+          <hr class="bolder mt-2">
+          <div class="text-green-800 text-l"><%= @user.email %></div>
+        </div>
+      <!---About me? -->
+
+    </div>
 
 
-<hr>
+   <!---Your bookings and itineraries -->
 
-  <% if current_user.booking_requests == @user.booking_requests %>
-    <h3>Your Booking</h3>
-    <% @booking_requests.each do |booking_request| %>
-      <%= booking_request.itinerary.name %>
-      <%= booking_request.booking_status %>
+    <% if current_user.booking_requests == @user.booking_requests %>
+      <h3 class="m-4 rounded pb-1.5 opacity-90 w-64 text-green-800 text-2xl">Your Bookings</h3>
+      <% @booking_requests.each do |booking_request| %>
+        <%= booking_request.itinerary.name %>
+        <%= booking_request.booking_status %>
+      <% end %>
     <% end %>
-  <% end %>
 
-<hr>
-  <% if current_user.itineraries == @user.itineraries %>
-    <h3>Your Itinerary</h3>
-    <% @itineraries.each do |itinerary| %>
-      <%= itinerary.name %>
-      <%= itinerary.description %>
+
+    <% if current_user.itineraries == @user.itineraries %>
+    <h3 class="m-4 rounded pb-1.5 opacity-90 w-64 text-green-800 text-2xl bg-white-300">Your Itineraries</h3>
+    <div class="cards-users">
+      <% @itineraries.each do |itinerary| %>
+        <div class="bg-white p-2 rounded h-50 w-15">
+
+        <div class="text-green-700 text-l text-center"><%= itinerary.name %></div>
+        <div class="text-green-700 text-s text-center"><%= itinerary.description %></div>
+ </div>
+      <% end %>
+
     <% end %>
-  <% end %>
-=======
-  </div>
+    </div>
 </main>
-
