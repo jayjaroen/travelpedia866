@@ -20,7 +20,8 @@ class ItinerariesController < ApplicationController
     @itinerary.user = current_user
     p "i'm here again#{@itinerary}"
     if @itinerary.save
-      redirect_to itinerary_path(@itinerary)
+      redirect_to user_path(current_user)
+      # redirect_to itinerary_path(@itinerary)
     else
       render :new, status: :unprocessable_entity
     end
