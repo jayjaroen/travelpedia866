@@ -4,9 +4,10 @@
       <%= simple_form_for (@itinerary) do |f| %>
       <%= f.association :location, placeholder:"Location", prompt: "Please select", label: false %>
       <%= f.input :name, placeholder:"Name",  label: false, class:"border py-2" %>
-      <%= f.input :description, placeholder:"Description",  label: false %>
-      <%= f.input :image, placeholder:"Image URL",  label: false %>
-      <%= f.input :comment, placeholder:"Comment",  label: false %>
+      <%= f.input :description, placeholder:"Description",  label: false, input_html: { class: "new-form" } %>
+       <hr class="mb-2">
+       <%= f.input :photo, as: :file, label: false %>
+
       <%= f.submit "Create" , class:"bg-green-700 w-full mt-5 text-white py-2 mb-4 rounded hover:bg-green-600 transition-colors" %>
     <% end %>
   </div>

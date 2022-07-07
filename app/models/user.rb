@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :itineraries, dependent: :destroy
   has_many :booking_requests # the booking requests created by user
+  has_one_attached :photo
 
   def delete
     @user.destroy
