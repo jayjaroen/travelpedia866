@@ -13,8 +13,6 @@ class BookingRequestsController < ApplicationController
   end
 
   def edit
-    # find_booking_request
-    # @booking_request.user.id == current_user.id
   end
 
   def update
@@ -24,6 +22,18 @@ class BookingRequestsController < ApplicationController
   end
 
   private
+
+  def accepted_booking_request
+    find_booking_request
+    @booking_request.update!(booking_status: "accepted")
+    redirect_to user_path(current_user)
+  end
+
+  def decline_booking_request
+    find_booking_request
+    @booking_request.update!(booking_status: "decline")
+    redirect_to user_path(current_user)
+  end
 
   def find_booking_request
     @booking_request = BookingRequest.find(params[:id])
@@ -35,4 +45,4 @@ class BookingRequestsController < ApplicationController
 end
 
 #controller for accept +routes to accept
-#controller for decline
+#controller for decline + routes to decline
