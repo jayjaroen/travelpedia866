@@ -1,11 +1,26 @@
 <main class="background">
   <div>
 
-  </div>
 
-  <h1 class="text-4XL text-green-800">Hi <%= @user.first_name %></h1>
-  <% @booking_requests.each do |booking_request| %>
-    <%= booking_request.itinerary.name %>
-    <%= booking_request.booking_status %>
+<hr>
+
+  <% if current_user.booking_requests == @user.booking_requests %>
+    <h3>Your Booking</h3>
+    <% @booking_requests.each do |booking_request| %>
+      <%= booking_request.itinerary.name %>
+      <%= booking_request.booking_status %>
+    <% end %>
   <% end %>
+
+<hr>
+  <% if current_user.itineraries == @user.itineraries %>
+    <h3>Your Itinerary</h3>
+    <% @itineraries.each do |itinerary| %>
+      <%= itinerary.name %>
+      <%= itinerary.description %>
+    <% end %>
+  <% end %>
+=======
+  </div>
 </main>
+
