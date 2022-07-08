@@ -17,11 +17,16 @@
       <%= itinerary.name %>
       <%= itinerary.description %>
       <%= link_to 'Edit', edit_itinerary_path(itinerary) %>
+    <% end %>
+<hr>
+    <h3>Accept people's request to join your Trip!</h3>
+     <% @itineraries.each do |itinerary| %>
       <% itinerary.booking_requests.each do |booking_request| %>
+        <%= booking_request.itinerary.name %>
         <%= booking_request.user.first_name %>
         <%= booking_request.booking_status %>
         <%= link_to 'Accept',  accepted_booking_request_path(booking_request),method: :patch %>
-        <%= link_to 'Decline',  accepted_decline_booking_request(booking_request),method: :patch %>
+        <%= link_to 'Decline',  decline_booking_request_path(booking_request),method: :patch %>
         <%#= link_to 'Accept', booking_request_path(booking_request), method: :patch %>
       <% end %>
     <% end %>

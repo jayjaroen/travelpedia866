@@ -17,9 +17,10 @@ class BookingRequestsController < ApplicationController
   end
 
   def update
-    find_booking_request
-    @booking_request.update!(booking_status: "accepted")
-    redirect_to user_path(current_user)
+    accepted_booking_request || decline_booking_request
+    # find_booking_request
+    # @booking_request.update!(booking_status: "accepted")
+    # redirect_to user_path(current_user)
   end
 
   private
@@ -27,13 +28,17 @@ class BookingRequestsController < ApplicationController
   def accepted_booking_request
     find_booking_request
     @booking_request.update!(booking_status: "accepted")
-    redirect_to user_path(current_user)
+    p "i'm hereeeee and this is booking status #{@booking_request.booking_status}"
+    redirect_back(fallback_location: root_path)
+    # redirect_to user_path(current_user)
   end
 
   def decline_booking_request
     find_booking_request
     @booking_request.update!(booking_status: "decline")
-    redirect_to user_path(current_user)
+    p "i'm hereeeee and this is booking status #{@booking_request.booking_status}"
+    redirect_back(fallback_location: root_path)
+    # redirect_to user_path(current_user)
   end
 
   def find_booking_request
