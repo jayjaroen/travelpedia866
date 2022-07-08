@@ -15,7 +15,6 @@ class ItinerariesController < ApplicationController
   end
 
   def create
-    # @location = Location.find(params[:location_id])
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.user = current_user
     if @itinerary.save
@@ -43,6 +42,6 @@ class ItinerariesController < ApplicationController
   end
 
   def itinerary_params
-    params.require(:itinerary).permit(:name, :description, :image, :comment, :user_id, :location_id)
+    params.require(:itinerary).permit(:name, :description, :comment, :user_id, :location_id,:photo )
   end
 end

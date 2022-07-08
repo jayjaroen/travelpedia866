@@ -1,15 +1,16 @@
 
 <main class="background">
-<h1 class="text-center text-2xl text-green-700 font-bold"> Itineraries </h1>
+<%# <h1 class="text-center text-2xl text-green-700 font-bold"> <%= @itinerary.name %>
 <%= link_to "Create", new_itinerary_path, class:"text-xl text-white bg-green-700 p-2 rounded flex align-center" %>
   <div class="container">
-    <div class="cards">
-      <% @itineraries.each do |itinerary| %>
-        <div class="list-card-category">
-        <%= link_to "read more", itinerary_path(itinerary) %>
-          <%= itinerary.name %>
-         <div>Description: <%= itinerary.description %>
 
+      <% @itineraries.each do |itinerary| %>
+      <h1 class="text-center text-2xl text-green-700 font-bold"> <%= @location.name %> itineraries </h1>
+      <div class="cards">
+        <div class="list-card-category">
+          <%= itinerary.name %>
+          <div>Description: <%= itinerary.description %>
+          <div><%= link_to "read more", itinerary_path(itinerary) %> </div>
          </div>
         </div>
       <% end %>
