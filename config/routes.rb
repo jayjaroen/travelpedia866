@@ -11,14 +11,12 @@ Rails.application.routes.draw do
     resources :booking_requests, only: [:index, :new, :create]
     end
 
-  resources :users, only:[:show, :edit, :update] do
-    resources :itineraries, only: [:index]
-    resources :booking_requests, only: [:index]
-  end
+  resources :users, only: [:show, :edit, :update]
+  resources :itineraries, only: [:index, :edit, :update ]
+  resources :booking_requests, only: [:index, :edit, :update]
 
 
-  # resources :users, only:[:show] do
-  #   resources :booking_requests, only: [:show]
-  # end
-  # resources :booking_requests, only:[:update]
+  patch '/booking_requests/:id/accepted_booking_request', to: 'booking_requests#accepted_booking_request', as: 'accepted_booking_request'
+  patch '/booking_requests/:id/decline_booking_request', to: 'booking_requests#decline_booking_request', as: 'decline_booking_request'
+
 end

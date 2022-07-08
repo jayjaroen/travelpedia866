@@ -1,0 +1,13 @@
+<div class="flex items-center justify-center h-screen bg-green-900">
+<div class=" bg-white w-96 p-10 rounded shadow-sm">
+    <h3 class="text-center text-2xl mb-4"> Edit Your Itinerary </h3>
+      <%= simple_form_for (@itinerary) do |f| %>
+      <%= f.association :location, placeholder:"Location", prompt: "Please select", label: false %>
+      <%= f.input :name, placeholder:"Name",  label: false, class:"border py-2" %>
+      <%= f.input :description, placeholder:"Description",  label: false %>
+      <%= f.input :image, placeholder:"Image URL",  label: false %>
+      <%= f.input :comment, placeholder:"Comment",  label: false %>
+      <%= f.submit "Edit" , class:"bg-green-700 w-full mt-5 text-white py-2 mb-4 rounded hover:bg-green-600 transition-colors" %>
+    <% end %>
+  </div>
+</div>
