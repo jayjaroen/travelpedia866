@@ -17,11 +17,15 @@
 
     <% if current_user.booking_requests == @user.booking_requests %>
       <h3 class="m-4 rounded pb-1.5 opacity-90 w-64 text-green-800 text-2xl">Your Bookings</h3>
-      <% @booking_requests.each do |booking_request| %>
-        <%= booking_request.itinerary.name %>
-        <%= booking_request.booking_status %>
-      <% end %>
+        <div class="cards-users">
+           <% @booking_requests.each do |booking_request| %>
+             <div class="bg-white p-2 rounded h-50 w-15 text-green-700">
+              <%= booking_request.itinerary.name %>
+              <%= booking_request.booking_status %>
+             </div>
+           <% end %>
     <% end %>
+    </div>
 
 
     <% if current_user.itineraries == @user.itineraries %>
