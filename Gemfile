@@ -66,3 +66,5 @@ gem 'faker'
 # Gem file - cloudinary
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
+
+gem "font-awesome-rails"

@@ -1,7 +1,50 @@
-<main class="background">
-  <div>
+<main class="background max-w-screen-xl">
+
+    <div class="flex flex-col">
+      <!---User profile section -->
+      <!---Name-->
+        <div class="m-4 rounded p-4 opacity-90 w-64">
+        <%= cl_image_tag @user.photo.key, :width=>200, :height=>150  %>
+          <div  class="text-green-800 text-4xl"><%= @user.first_name.upcase %> <%=  @user.last_name.upcase %></div>
+          <hr class="bolder mt-2">
+          <div class="text-green-800 text-l"><%= @user.email %></div>
+          <%= link_to "Edit Profile", edit_user_path(@user) %>
+        </div>
+      <!---About me? -->
 
 
+    </div>
+
+
+   <!---Your bookings and itineraries -->
+
+    <% if current_user.booking_requests == @user.booking_requests %>
+      <h3 class="m-4 rounded pb-1.5 opacity-90 w-64 text-green-800 text-2xl">Your Bookings</h3>
+        <div class="cards-users">
+           <% @booking_requests.each do |booking_request| %>
+             <div class="bg-white p-2 rounded h-50 w-15 text-green-700">
+              <%= booking_request.itinerary.name %>
+              <%= booking_request.booking_status %>
+             </div>
+           <% end %>
+    <% end %>
+    </div>
+
+
+    <% if current_user.itineraries == @user.itineraries %>
+    <h3 class="m-4 rounded pb-1.5 opacity-90 w-64 text-green-800 text-2xl bg-white-300">Your Itineraries</h3>
+    <div class="cards-users">
+      <% @itineraries.each do |itinerary| %>
+        <div class="bg-white p-2 rounded h-50 w-15">
+          <div class="text-green-700 text-l text-center"><%= itinerary.name %></div>
+          <div class="text-green-700 text-s text-center"><%= itinerary.description %></div>
+        </div>
+      <% end %>
+
+    <% end %>
+    </div>
+</main>
+=======
   <%# <% if current_user.booking_requests == @user.booking_requests %>
     <h3>Your Booking</h3>
     <% @booking_requests.each do |booking_request| %>
@@ -40,3 +83,4 @@
   <%# if you are the one who create the itinerary show be review the booking request %>
   <%# or should create a form to display service options? for updating the booking_request %>
   <%# or should create a method for action controller? %>
+
