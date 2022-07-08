@@ -1,12 +1,14 @@
-<main class="background">
+<main class="background max-w-screen-xl">
 
     <div class="flex flex-col">
       <!---User profile section -->
       <!---Name-->
         <div class="m-4 rounded p-4 opacity-90 w-64">
+        <%= cl_image_tag @user.photo.key, :width=>200, :height=>150  %>
           <div  class="text-green-800 text-4xl"><%= @user.first_name.upcase %> <%=  @user.last_name.upcase %></div>
           <hr class="bolder mt-2">
           <div class="text-green-800 text-l"><%= @user.email %></div>
+          <%= link_to "Edit Profile", edit_user_path(@user) %>
         </div>
       <!---About me? -->
 
