@@ -8,6 +8,17 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
+    @address =
+    [{
+      lat: @itinerary.latitude,
+      lng: @itinerary.longitude
+    }]
+    # @markers = @itineraries.geocoded.map.each do |itinerary|
+    #   {
+    #     lat: itinerary.latitude,
+    #     lng: itinerary.longitude
+    #   }
+    # should it plural here as well, but we are going to display one itinerary here
   end
 
   def new
