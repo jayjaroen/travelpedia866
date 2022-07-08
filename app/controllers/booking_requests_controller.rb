@@ -8,6 +8,7 @@ class BookingRequestsController < ApplicationController
     @itinerary = Itinerary.find(params[:itinerary_id])
     @booking_request = BookingRequest.new(user: current_user, itinerary: @itinerary, booking_status: "pending")
     p "i am here #{@booking_request}"
+    # maybe add some lines here on if current user is not the one who create itinerary
     redirect_to user_path(@booking_request.user) if @booking_request.save
     # authorize @booking_request
   end

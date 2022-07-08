@@ -20,12 +20,14 @@
       <% itinerary.booking_requests.each do |booking_request| %>
         <%= booking_request.user.first_name %>
         <%= booking_request.booking_status %>
-        <%= link_to 'Accept', booking_request_path(booking_request), method: :patch %>
+        <%= link_to 'Accept',  accepted_booking_request_path(booking_request),method: :patch %>
+        <%= link_to 'Decline',  accepted_decline_booking_request(booking_request),method: :patch %>
+        <%#= link_to 'Accept', booking_request_path(booking_request), method: :patch %>
       <% end %>
     <% end %>
     <%# <% @booking_requests.itinerary do |booking_request| %>
       <%# <%= booking_request.booking_status %>
-      <%#= link_to 'Accept', edit_booking_request_path(booking_request) %>
+      <%#= link_to 'Accept',  accepted_booking_request_path(booking_request) %>
     <%# <% end %>
   <%# <% end %>
 
