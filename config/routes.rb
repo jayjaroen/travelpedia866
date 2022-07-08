@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :itineraries, only: [:index, :edit, :update ]
   resources :booking_requests, only: [:index, :edit, :update]
 
-  patch '/booking_requests/:id', to: 'booking_requests#accepted_booking_request', as: 'accepted_booking_request'
-  patch '/booking_requests/:id', to: 'booking_requests#decline_booking_request', as: 'decline_booking_request'
+  patch '/booking_requests/:id/accepted_booking_request', to: 'booking_requests#accepted_booking_request', as: 'accepted_booking_request'
+  patch '/booking_requests/:id/decline_booking_request', to: 'booking_requests#decline_booking_request', as: 'decline_booking_request'
 
 end

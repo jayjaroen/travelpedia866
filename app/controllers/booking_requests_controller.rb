@@ -18,12 +18,9 @@ class BookingRequestsController < ApplicationController
 
   def update
     accepted_booking_request || decline_booking_request
-    # find_booking_request
-    # @booking_request.update!(booking_status: "accepted")
-    # redirect_to user_path(current_user)
   end
 
-  private
+
 
   def accepted_booking_request
     find_booking_request
@@ -35,11 +32,13 @@ class BookingRequestsController < ApplicationController
 
   def decline_booking_request
     find_booking_request
-    @booking_request.update!(booking_status: "decline")
+    @booking_request.update!(booking_status: "declined")
     p "i'm hereeeee and this is booking status #{@booking_request.booking_status}"
     redirect_back(fallback_location: root_path)
     # redirect_to user_path(current_user)
   end
+
+  private
 
   def find_booking_request
     @booking_request = BookingRequest.find(params[:id])
