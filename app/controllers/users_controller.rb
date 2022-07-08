@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
+    @user = current_user
     @booking_requests = @user.booking_requests
     @itineraries = @user.itineraries
+<<<<<<< HEAD
   end
 
   def edit
@@ -22,6 +24,8 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:email, :user_id, :photo, :about_me )
+=======
+>>>>>>> master
   end
 end
 # if the booking request of itinerary = current user, then display all the booking request

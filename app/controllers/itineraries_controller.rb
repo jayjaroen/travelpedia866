@@ -17,22 +17,23 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.user = current_user
-    p "i'm here again#{@itinerary}"
     if @itinerary.save
       redirect_to user_path(current_user)
-      # redirect_to itinerary_path(@itinerary)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  def update
-    # upd
+  def edit
+    find_itinerary
+    @itinerary.user.id == current_user.id
   end
 
-  # there is no user id yet/ not created
-    #  what is the link between itinerary and location (after the location has been created?)
-
+  def update
+    find_itinerary
+    @itinerary.update(itinerary_params)
+    redirect_to user_path(current_user)
+  end
 
   private
 
