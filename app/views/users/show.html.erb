@@ -1,86 +1,72 @@
-<main class="background max-w-screen-xl">
+<main class="bg-green-700 h-screen mx-auto px-4 max-w-screen-xl">
+  <!---Name-->
+ <div class="text-white text-bold text-4xl ml-2 pt-3 pb-2">
+    <%= @user.first_name.upcase %> <%=  @user.last_name.upcase %>
+    <%= link_to edit_user_path(@user) do %>
+    <i class="fas fa-edit text-white text-2xl ml-2"></i>
+    <% end %>
+  </div>
+     <!---User profile section -->
+    <div class="flex">
+      <div class="rounded p-2 w-1/2 bg-white">
 
-    <div class="flex flex-col">
-      <!---User profile section -->
-      <!---Name-->
-        <div class="m-4 rounded p-4 opacity-90 w-64">
-        <%= cl_image_tag @user.photo.key, :width=>200, :height=>150  %>
-          <div  class="text-green-800 text-4xl"><%= @user.first_name.upcase %> <%=  @user.last_name.upcase %></div>
-          <hr class="bolder mt-2">
-          <div class="text-green-800 text-l"><%= @user.email %></div>
-          <%= link_to "Edit Profile", edit_user_path(@user) %>
-        </div>
-      <!---About me? -->
+          <div class="flex align-left flex-row">
+            <% if @user.photo.attached? %>
+              <%= cl_image_tag @user.photo.key, :width=>200, :height=>150, gravity: :face  %>
+            <% else %>
+              <%= image_tag "Profilepic.png", width: 200, height: 150 %>
+            <% end %>
 
-<<<<<<< HEAD
-    </div>
+           <div class="flex-col">
+            <span class="text-green-800 text-xl ml-2">E-mail Address:</span>
+            <div class="text-green-800 text-l ml-2"><%= @user.email %></div>
+            <span class="text-green-800 text-xl ml-2 pt-2">About me:</span>
+            <div class="text-green-800 text-l ml-2"><%= @user.about_me %></div>
+           </div>
+          </div>
+      </div>
 
-
-   <!---Your bookings and itineraries -->
-
-    <% if current_user.booking_requests == @user.booking_requests %>
-      <h3 class="m-4 rounded pb-1.5 opacity-90 w-64 text-green-800 text-2xl">Your Bookings</h3>
-        <div class="cards-users">
-           <% @booking_requests.each do |booking_request| %>
-             <div class="bg-white p-2 rounded h-50 w-15 text-green-700">
-              <%= booking_request.itinerary.name %>
+      <div class="w-1/2 bg-white ml-2 rounded">
+        <!--- REQUESTS -->
+        <h3 class="text-green-700 text-center text-xl">Requests</h3>
+          <% @itineraries.each do |itinerary| %>
+            <% itinerary.booking_requests.each do |booking_request| %>
+             <div class="mx-2"> <%= booking_request.user.first_name.capitalize %> wants to your join <%= booking_request.itinerary.name %>
               <%= booking_request.booking_status %>
-             </div>
-           <% end %>
-    <% end %>
-    </div>
-
-
-    <% if current_user.itineraries == @user.itineraries %>
-    <h3 class="m-4 rounded pb-1.5 opacity-90 w-64 text-green-800 text-2xl bg-white-300">Your Itineraries</h3>
-    <div class="cards-users">
-      <% @itineraries.each do |itinerary| %>
-        <div class="bg-white p-2 rounded h-50 w-15">
-          <div class="text-green-700 text-l text-center"><%= itinerary.name %></div>
-          <div class="text-green-700 text-s text-center"><%= itinerary.description %></div>
+              <!--- if/else how to hide buttons when user accepted/decline? -->
+                <%= link_to 'Accept',  accepted_booking_request_path(booking_request),method: :patch, class:"bg-green-500 p-1.5 rounded hover:bg-green-400 text-white" %>
+                <%= link_to 'Decline',  decline_booking_request_path(booking_request),method: :patch, class:"bg-red-500 p-1.5 rounded hover:bg-red-400 text-white" %></div>
+              <% end %>
+           </div>
+         <% end %>
         </div>
-      <% end %>
+      </div>
 
-    <% end %>
-    </div>
-</main>
-=======
-  <%# <% if current_user.booking_requests == @user.booking_requests %>
-    <h3>Your Booking</h3>
-    <% @booking_requests.each do |booking_request| %>
-      <%= booking_request.itinerary.name %>
-      <%= booking_request.booking_status %>
-    <% end %>
-  <%# <% end %>
-
-<hr>
+  <!--- YOUR ITINERARIES -->
   <%# <% if current_user.itineraries == @user.itineraries %>
-    <h3>Your Itinerary</h3>
-    <% @itineraries.each do |itinerary| %>
-      <%= itinerary.name %>
-      <%= itinerary.description %>
-      <%= link_to 'Edit', edit_itinerary_path(itinerary) %>
-    <% end %>
-<hr>
-    <h3>Accept people's request to join your Trip!</h3>
-     <% @itineraries.each do |itinerary| %>
-      <% itinerary.booking_requests.each do |booking_request| %>
-        <%= booking_request.itinerary.name %>
-        <%= booking_request.user.first_name %>
-        <%= booking_request.booking_status %>
-        <%= link_to 'Accept',  accepted_booking_request_path(booking_request),method: :patch %>
-        <%= link_to 'Decline',  decline_booking_request_path(booking_request),method: :patch %>
-        <%#= link_to 'Accept', booking_request_path(booking_request), method: :patch %>
-      <% end %>
-    <% end %>
-    <%# <% @booking_requests.itinerary do |booking_request| %>
-      <%# <%= booking_request.booking_status %>
-      <%#= link_to 'Accept',  accepted_booking_request_path(booking_request) %>
-    <%# <% end %>
-  <%# <% end %>
 
-<hr>
-  <%# if you are the one who create the itinerary show be review the booking request %>
-  <%# or should create a form to display service options? for updating the booking_request %>
-  <%# or should create a method for action controller? %>
->>>>>>> master
+    <h3 class="text-white text-xl pt-2">Your Itineraries:</h3>
+      <div class="cards">
+        <% @itineraries.each do |itinerary| %>
+          <div class="list-card-category-itinerary bg-white p-2 rounded">
+            <div class="text-center"> <%= itinerary.name.upcase %>
+              <%= link_to edit_itinerary_path(itinerary) do %>
+              <i class="fas fa-edit text-green-700 text-xl ml-2"></i>
+              <% end %></div>
+            <hr class="text-green-700 text-bold">
+          <div><%= itinerary.description %></div>
+        </div>
+        <% end %>
+      </div>
+
+
+ <!--- YOUR BOOKINGS -->
+  <%# <% if current_user.booking_requests == @user.booking_requests %>
+    <h3 class="opacity-90 w-64 text-white text-xl bg-green-700 ">Your Bookings</h3>
+      <% @booking_requests.each do |booking_request| %>
+        <div class="text-white border-solid border-green-700">
+          <%= booking_request.itinerary.name %>
+          <%= booking_request.booking_status %>
+        </div>
+     <% end %>
+</main>
