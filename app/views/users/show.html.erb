@@ -67,7 +67,7 @@
     <h3 class="opacity-90 w-64 text-white text-xl bg-green-700 ">Your Bookings</h3>
       <% @booking_requests.each do |booking_request| %>
         <div class="text-white border-solid border-green-700">
-          <%= booking_request.itinerary.name %>
+          <%= link_to booking_request.itinerary.name, itinerary_path(booking_request.itinerary) %>
           <%= booking_request.booking_status %>
         </div>
      <% end %>
