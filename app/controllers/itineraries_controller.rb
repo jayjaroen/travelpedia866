@@ -13,6 +13,7 @@ class ItinerariesController < ApplicationController
     }
     @itinerary.user = current_user
     @booking_requests = @itinerary.booking_requests
+
   end
 
   def new
