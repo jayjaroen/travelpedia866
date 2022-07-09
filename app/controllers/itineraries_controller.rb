@@ -12,7 +12,6 @@ class ItinerariesController < ApplicationController
       lng: @itinerary.longitude
     }
     @booking_requests = @itinerary.booking_requests
-
   end
 
   def new
