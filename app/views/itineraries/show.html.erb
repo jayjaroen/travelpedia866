@@ -11,7 +11,9 @@
             <div>Description: <%= @itinerary.description %></div>
             <div><%= @itinerary.image%></div>
             <div> Comments: <%= @itinerary.comment%></div>
-            <div><%= link_to 'Join', itinerary_booking_requests_path(@itinerary), method: :post, class:"absolute bottom-0 transform translate-x-96 bg-green-700 hover:bg-green-600 text-white p-2 rounded mb-2" %></div>
+            <% if current_user != @itinerary.user %>
+              <div><%= link_to 'Join', itinerary_booking_requests_path(@itinerary), method: :post, class:"absolute bottom-0 transform translate-x-96 bg-green-700 hover:bg-green-600 text-white p-2 rounded mb-2" %></div>
+            <% end %>
         </div>
 
       <div class="width-1/2 ml-14">
