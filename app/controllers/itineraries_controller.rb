@@ -7,11 +7,12 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
-
     @marker = {
       lat: @itinerary.latitude,
       lng: @itinerary.longitude
     }
+    @itinerary.user = current_user
+    @booking_requests = @itinerary.booking_requests
   end
 
   def new

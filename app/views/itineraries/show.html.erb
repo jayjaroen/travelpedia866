@@ -21,9 +21,14 @@
 
       <div class="width-1/2 ml-14">
       <div class="flex flex=col">
-          <div>Created by </div>
           <div class="text-xl bg-white p-3 text-green-700 border-dashed ">
-            Bookings
+            <h1>Bookings</h1>
+            <% @booking_requests.each do |booking_request| %>
+              <div>
+              <%= booking_request.user.first_name.capitalize %>
+              <%= booking_request.booking_status %>
+              </div>
+            <% end %>
             <%# display a list of booking_request for this itinerary %>
 
           </div>
