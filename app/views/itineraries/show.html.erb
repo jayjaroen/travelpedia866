@@ -9,18 +9,7 @@
             </div>
         </div>
 
-<<<<<<< HEAD
-       <%# Intieray info %>
-        <div class="w-1/2 bg-green-700 relative rounded p-8 h-1/2">
-            <h1 class="text-white text-3xl ml-2 mr-2"><%= @itinerary.name %></h1>
-            <%= cl_image_tag @itinerary.photo.key, :width=>400, :height=>450, class:"flex justify-center" %>
-            <div>Description: <%= @itinerary.description %></div>
-            <div><%= @itinerary.image%></div>
-            <div> Comments: <%= @itinerary.comment%></div>
-            <% if current_user != @itinerary.user %>
-              <div><%= link_to 'Join', itinerary_booking_requests_path(@itinerary), method: :post, class:"absolute bottom-0 transform translate-x-96 bg-green-700 hover:bg-green-600 text-white p-2 rounded mb-2" %></div>
-            <% end %>
-=======
+
      <div class="w-1/2 mr-4 mt-2">
         <div class="bg-white relative rounded p-4 mt-2 ml-4 flex-col">
             <h1 class="text-green-700 text-3xl ml-2 mr-2"><%= @itinerary.name %></h1>
@@ -32,13 +21,12 @@
 
             <div><%= link_to 'Join', itinerary_booking_requests_path(@itinerary), method: :post, class:"absolute bottom-0 right-0 bg-green-700 hover:bg-green-600 text-white p-2 rounded mb-2 mr-3" %></div>
 
->>>>>>> 949da113e4952c53670cf80b000a75a7525cadf0
         </div>
 
       <%# Booking requests %>
         <div class="flex-col bg-white rounded mt-4 ml-4 text-green-700">
           <h1 class="p-2 text-2xl">Bookings</h1>
-          <div class="text-green-700 p-2 mb-2 rounded m-1 text-m">
+          <div class="text-green-700 p-2 mb-2 rounded ml-1 text-m">
 
 
 
@@ -46,7 +34,7 @@
               <% if booking_request.user.photo.attached? %>
                 <%= cl_image_tag booking_request.user.photo.key,  :width=>75, :height=>75, :gravity=>"face", :radius=>"max", :crop=>"fill"  %>
               <% else %>
-                <%= image_tag "Profilepic.png", width: 200, height: 150 %>
+                <%= image_tag "Profilepic.png", width: 75, height: 75, class:"rounded-full" %>
               <% end %>
               <%= booking_request.user.first_name.capitalize %>
               <%= booking_request.booking_status %>
