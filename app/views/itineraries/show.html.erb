@@ -1,17 +1,17 @@
-<main class="background">
+<main class="bg-green-700">
   <div class="flex mx-auto px-4">
        <%# Mapbox %>
-        <div class="bg-white h-screen w-1/2 mr-2 rounded p-8">
+        <div class="bg-white h-screen w-1/2 mr-2 rounded p-8 mt-2">
           <h2>Mapbox</h2>
         </div>
        <%# Intieray info %>
-        <div class="w-1/2 bg-green-700 relative rounded p-8 h-1/2">
-            <h1 class="text-white text-3xl ml-2 mr-2"><%= @itinerary.name %></h1>
+        <div class="w-1/2 bg-white relative rounded p-4 h-1/2 mt-2">
+            <h1 class="text-green-700 text-3xl ml-2 mr-2"><%= @itinerary.name %></h1>
             <%= cl_image_tag @itinerary.photo.key, :width=>400, :height=>450, class:"flex justify-center" %>
             <div>Description: <%= @itinerary.description %></div>
             <div><%= @itinerary.image%></div>
-            <div> Comments: <%= @itinerary.comment%></div>
-            <div><%= link_to 'Join', itinerary_booking_requests_path(@itinerary), method: :post, class:"absolute bottom-0 transform translate-x-96 bg-green-700 hover:bg-green-600 text-white p-2 rounded mb-2" %></div>
+
+            <div><%= link_to 'Join', itinerary_booking_requests_path(@itinerary), method: :post, class:"absolute bottom-0 right-0 bg-green-700 hover:bg-green-600 text-white p-2 rounded mb-2 mr-3" %></div>
         </div>
 
 
