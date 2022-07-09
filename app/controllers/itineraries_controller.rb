@@ -4,10 +4,21 @@ class ItinerariesController < ApplicationController
     @location = Location.find(params[:location_id])
     @itineraries = @location.itineraries
     # create the Itinerary on the index page
+    # @markers = @itineraries.geocoded.map.each do |itinerary|
+    #     {
+    #       lat: itinerary.latitude,
+    #       lng: itinerary.longitude,
+    #       info_window: render_to_string(partial: "info_window", locals: { itinerary: itinerary })
+    #     }
+
   end
 
   def show
     @itinerary = Itinerary.find(params[:id])
+    @marker = {
+      lat: @itinerary.latitude,
+      lng: @itinerary.longitude
+    }
   end
 
   def new
@@ -42,6 +53,6 @@ class ItinerariesController < ApplicationController
   end
 
   def itinerary_params
-    params.require(:itinerary).permit(:name, :description, :comment, :user_id, :location_id,:photo )
+    params.require(:itinerary).permit(:name, :description, :comment, :user_id, :location_id,:photo, :address )
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_08_035659) do
+ActiveRecord::Schema.define(version: 2022_07_08_093143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,9 +62,9 @@ ActiveRecord::Schema.define(version: 2022_07_08_035659) do
     t.bigint "location_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "address"
     t.float "latitude"
     t.float "longitude"
-    t.string "address"
     t.index ["location_id"], name: "index_itineraries_on_location_id"
     t.index ["user_id"], name: "index_itineraries_on_user_id"
   end
@@ -85,7 +85,6 @@ ActiveRecord::Schema.define(version: 2022_07_08_035659) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "firstName"
     t.string "first_name"
     t.string "last_name"
     t.text "about_me"

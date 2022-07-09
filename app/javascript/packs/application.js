@@ -9,3 +9,9 @@ require("@rails/activestorage").start()
 require("channels")
 
 import "stylesheets/application"
+
+import { initMapbox } from './map.js';
+
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})
