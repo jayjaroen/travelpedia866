@@ -1,6 +1,6 @@
 
-<main class="background">
-  <h1 class="font-bold text-4xl text-green-700 text-center"> Pick a destination </h1>
+<main class="bg-green-700">
+  <h1 class="font-bold text-4xl text-white text-center"> Pick a province</h1>
     <div class="cards">
 
       <% @locations.each do |location| %>
@@ -8,7 +8,7 @@
         <div class="list-card-category relative">
           <%= link_to location_itineraries_path(location, @itineraries) do %>
           <!--- background img -->
-          <%= image_tag location.image, class:"img-show" %>
+          <%= cl_image_tag location.image, class:"img-show" %>
             <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center hover:scale-125 transition duration-500 ease-in-out drop-shadow-2xl">
               <div class="text-3xl"><%= location.description %></div>
               <div class="text-xl"><%= location.name %></div>

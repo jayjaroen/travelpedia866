@@ -69,3 +69,4 @@ gem 'cloudinary', '~> 1.16.0'
 
 # Geocoding
 gem 'geocoder'
+gem "font-awesome-rails"

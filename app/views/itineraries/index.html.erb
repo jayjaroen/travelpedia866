@@ -1,16 +1,27 @@
 
 <main class="background">
-<%# <h1 class="text-center text-2xl text-green-700 font-bold"> <%= @itinerary.name %>
-<%= link_to "Create", new_itinerary_path, class:"text-xl text-white bg-green-700 p-2 rounded flex align-center" %>
-  <div class="container">
+<div class="flex justify-center">
+ <div>
+  <h1 class="text-center text-2xl text-green-700 font-bold"> <%= @location.name %> itineraries </h1>
+ </div>
 
+ <div>
+  <%= link_to new_itinerary_path do %>
+    <i class="fa-solid fa-circle-plus text-green-700 ml-2 mt-2 text-xl"></i>
+  <% end %>
+ </div>
+</div>
+  <%# <%= link_to "Create", new_itinerary_path, class:"text-xl text-white bg-green-700 p-2 rounded flex align-center" %>
+
+  <div class="flex flex align-center">
+    <div class="cards">
       <% @itineraries.each do |itinerary| %>
-      <h1 class="text-center text-2xl text-green-700 font-bold"> <%= @location.name %> itineraries </h1>
-      <div class="cards">
-        <div class="list-card-category">
-          <%= itinerary.name %>
-          <div>Description: <%= itinerary.description %>
-          <div><%= link_to "read more", itinerary_path(itinerary) %> </div>
+      <div class="list-card-category-itinerary">
+      <!--- background img -->
+         <div class="text-white text-center bg-green-700 p-2 rounded text-xl"> <%= itinerary.name.capitalize %> </div>
+         <hr class="text-green-700">
+          <div class="text-green-700 text-center bg-white p-2 rounded text-l">Description: <%= itinerary.description %>
+          <div><%= link_to "Read more", itinerary_path(itinerary), class:"hover:underline" %> </div>
          </div>
         </div>
       <% end %>
