@@ -49,13 +49,15 @@
       <div class="cards">
         <% @itineraries.each do |itinerary| %>
           <div class="list-card-category-itinerary bg-white p-2 rounded">
-            <div class="text-center"> <%= itinerary.name.upcase %>
+          <%= link_to itinerary_path(itinerary) do %>
+            <div class="text-center">  <%=itinerary.name.upcase  %>
               <%= link_to edit_itinerary_path(itinerary) do %>
               <i class="fas fa-edit text-green-700 text-xl ml-2"></i>
               <% end %></div>
             <hr class="text-green-700 text-bold">
-          <div><%= itinerary.description %></div>
-        </div>
+            <div><%= itinerary.description %></div>
+          </div>
+         <% end %>
         <% end %>
       </div>
 
