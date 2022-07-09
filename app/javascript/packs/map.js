@@ -1,4 +1,4 @@
-import mapboxgl from 'mapbox-gl';
+import mapboxgl from '!mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 const initMapbox = () => {
@@ -11,14 +11,12 @@ const initMapbox = () => {
       style: 'mapbox://styles/mapbox/streets-v10'
     });
 
-    // Iinteraty over an array of object - but you only have one array of the object
-    const markers = JSON.parse(mapElement.dataset.markers);
-
-    markers.forEach((marker) => {
+    // Iinteraty over an array of object - but what if you only have one object
+    const marker = JSON.parse(mapElement.dataset.marker);
     new mapboxgl.Marker()
       .setLngLat([ marker.lng, marker.lat ])
       .addTo(map);
-    })
+
 
     const fitMapToMarkers = (map, markers) => {
       const bounds = new mapboxgl.LngLatBounds();

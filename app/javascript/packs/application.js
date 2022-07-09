@@ -10,7 +10,7 @@ require("channels")
 
 import "stylesheets/application"
 
-import { initMapbox } from '../plugins/init_mapbox';
+import { initMapbox } from './map.js';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
