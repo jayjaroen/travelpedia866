@@ -19,6 +19,7 @@ class ItinerariesController < ApplicationController
       lat: @itinerary.latitude,
       lng: @itinerary.longitude
     }
+    @itinerary.user = current_user
   end
 
   def new
