@@ -11,7 +11,6 @@ class ItinerariesController < ApplicationController
       lat: @itinerary.latitude,
       lng: @itinerary.longitude
     }
-    @itinerary.user = current_user
     @booking_requests = @itinerary.booking_requests
 
   end

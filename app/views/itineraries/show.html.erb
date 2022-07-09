@@ -18,7 +18,11 @@
                 <div class="ml-1">Description: <%= @itinerary.description %></div>
             </div>
 
-            <div><%= link_to 'Join', itinerary_booking_requests_path(@itinerary), method: :post, class:"absolute bottom-0 right-0 bg-green-700 hover:bg-green-600 text-white p-2 rounded mb-2 mr-3" %></div>
+            <div>
+              <% if current_user != @itinerary.user %>
+                <%= link_to 'Join', itinerary_booking_requests_path(@itinerary), method: :post, class:"absolute bottom-0 right-0 bg-green-700 hover:bg-green-600 text-white p-2 rounded mb-2 mr-3" %>
+              <% end %>
+            </div>
 
         </div>
 
