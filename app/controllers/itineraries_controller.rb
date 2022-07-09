@@ -3,14 +3,6 @@ class ItinerariesController < ApplicationController
   def index
     @location = Location.find(params[:location_id])
     @itineraries = @location.itineraries
-    # create the Itinerary on the index page
-    # @markers = @itineraries.geocoded.map.each do |itinerary|
-    #     {
-    #       lat: itinerary.latitude,
-    #       lng: itinerary.longitude,
-    #       info_window: render_to_string(partial: "info_window", locals: { itinerary: itinerary })
-    #     }
-
   end
 
   def show
@@ -20,6 +12,8 @@ class ItinerariesController < ApplicationController
       lng: @itinerary.longitude
     }
     @itinerary.user = current_user
+    @booking_requests = @itinerary.booking_requests
+
   end
 
   def new
