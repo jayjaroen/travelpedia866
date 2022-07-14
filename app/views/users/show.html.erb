@@ -1,73 +1,79 @@
-<main class="bg-green-700 h-screen">
+<main class="bg-green-700 px-8 grid lg:grid-cols-3 h-screen max-w-screen-xl mx-auto px-4 pt-4">
   <!---Name-->
- <div class="text-white text-bold text-4xl ml-2 pt-3 pb-2">
-    <%= @user.first_name.upcase %> <%=  @user.last_name.upcase %>
-    <%= link_to edit_user_path(@user) do %>
-    <i class="fas fa-edit text-white text-2xl ml-2"></i>
-    <% end %>
-  </div>
+  <div class="col-span-3 md:col-span-2 lg:grid-span-2 xl:grid-span-2">
+    <p class="text-white text-bold text-2xl ml-2 pt-3 md:text-4xl w-full  lg:col-span-3">
+      <%= @user.first_name.upcase %> <%=  @user.last_name.upcase %>
+      <%= link_to edit_user_path(@user) do %> <i class="fas fa-edit text-white text-2xl"></i> <% end %>
+    </p>
      <!---User profile section -->
-    <div class="flex">
-      <div class="rounded p-2 w-1/2 bg-white ml-2">
-          <div class="flex align-left flex-row ">
+    <%# <div class="md:flex lg:flex"> %>
+      <div class="rounded p-2 bg-white mx-2">
+          <div >
               <% if @user.photo.attached? %>
-                <%= cl_image_tag @user.photo.key, :width=>200, :height=>150, gravity: :face  %>
+                <%= cl_image_tag @user.photo.key, :width=>200, :height=>150, gravity: :face, class:"object-scale-down" %>
               <% else %>
-                <%= image_tag "Profilepic.png", width: 200, height: 150 %>
+                <%= image_tag "Profilepic.png", width: 200, height: 150, class:"object-scale-down" %>
               <% end %>
 
               <div class="flex-col">
-                <span class="text-green-800 text-xl ml-2">E-mail Address:</span>
-                <div class="text-green-800 text-l ml-2"><%= @user.email %></div>
-                <span class="text-green-800 text-xl ml-2 pt-2">About me:</span>
-                <div class="text-green-800 text-l ml-2"><%= @user.about_me %></div>
+                <span class="text-green-800 text-l ml-2">E-mail Address:</span><div class="text-green-800 text-m ml-2"><%= @user.email %></div>
+                <span class="text-green-800 text-l ml-2 pt-2">About me:</span><div class="text-green-800 text-m ml-2"><%= @user.about_me %></div>
               </div>
           </div>
-      </div>
+        <%# </div> %>
+     </div>
+  </div>
 
-      <div class="w-1/2 bg-white ml-2 mr-2 rounded">
-        <!--- REQUESTS -->
-        <h3 class="text-green-700 text-center text-xl">Requests</h3>
-          <% @itineraries.each do |itinerary| %>
+  <!--- REQUESTS -->
+        <div class="rounded p-2 bg-white mx-2 col-span-3 lg:col-span-1 md:col-span-1 mt-2 xl:col-span-1 col-span-3">
+          <h3 class="text-green-700 text-center text-l mt-1 lg:text-xl xl:text-xl">Requests</h3>
+          <hr class="text-green-700">
+            <% @itineraries.each do |itinerary| %>
             <% itinerary.booking_requests.each do |booking_request| %>
-
-             <div class="my-2 ml-2"> <%= booking_request.user.first_name.capitalize %> wants to your join <%= booking_request.itinerary.name %>
-                <%= booking_request.booking_status %>
-                <%= link_to 'Accept',  accepted_booking_request_path(booking_request),method: :patch, class:"bg-green-500 p-1 rounded hover:bg-green-400 text-white" %>
-                <%= link_to 'Decline',  decline_booking_request_path(booking_request),method: :patch, class:"bg-red-500 p-1 rounded hover:bg-red-400 text-white" %>
-            </div>
+              <div class="my-2 ml-2"> <%= booking_request.user.first_name.capitalize %> wants to your join <%= booking_request.itinerary.name %>
+                  <%= booking_request.booking_status %>
+                  <div></div>
+                  <%= link_to 'Accept',  accepted_booking_request_path(booking_request),method: :patch, class:"bg-green-500 p-1 rounded hover:bg-green-400 text-white" %>
+                  <%= link_to 'Decline',  decline_booking_request_path(booking_request),method: :patch, class:"bg-red-500 p-1 rounded hover:bg-red-400 text-white" %>
+             </div>
+              </div>
             <% end %>
-         <% end %>
+            <% end %>
         </div>
       </div>
+    </div>
 
   <!--- YOUR ITINERARIES -->
-  <%# <% if current_user.itineraries == @user.itineraries %>
-
-    <h3 class="text-white text-xl pt-2">Your Itineraries:</h3>
+ <div class="col-span-3 text-green-700 text-center text-l bg-white rounded mt-2 mx-1">
+    <h3 class="mt-1 md:text-xl lg:text-xl xl:text-xl">Your Itineraries:</h3>
+    <hr class="text-green-700">
       <div class="cards">
         <% @itineraries.each do |itinerary| %>
+
           <div class="list-card-category-itinerary bg-white p-2 rounded">
-          <%= link_to itinerary_path(itinerary) do %>
-            <div class="text-center">  <%=itinerary.name.upcase  %>
-              <%= link_to edit_itinerary_path(itinerary) do %>
-              <i class="fas fa-edit text-green-700 text-xl ml-2"></i>
-              <% end %></div>
+            <%= link_to itinerary_path(itinerary) do %>
+            <div class="text-center">  <%=itinerary.name.upcase  %> <%= link_to edit_itinerary_path(itinerary) do %> <i class="fas fa-edit text-green-700 text-xl ml-2"></i> <% end %></div>
             <hr class="text-green-700 text-bold">
             <div><%= itinerary.description %></div>
           </div>
+
          <% end %>
         <% end %>
       </div>
-
+  </div>
 
  <!--- YOUR BOOKINGS -->
-  <%# <% if current_user.booking_requests == @user.booking_requests %>
-    <h3 class="opacity-90 w-64 text-white text-xl bg-green-700 ">Your Bookings</h3>
-      <% @booking_requests.each do |booking_request| %>
-        <div class="text-white border-solid border-green-700">
-          <%= link_to booking_request.itinerary.name, itinerary_path(booking_request.itinerary) %>
-          <%= booking_request.booking_status %>
+ <div class="col-span-3 text-green-700 text-center text-l bg-white rounded mt-2 mx-1 mb-2">
+    <h3 class="mt-2 lg:text-xl xl:text-xl">Your Bookings</h3>
+    <hr class="text-green-700">
+        <div class="cards">
+          <% @booking_requests.each do |booking_request| %>
+            <div class="text-center">
+              <%= link_to booking_request.itinerary.name, itinerary_path(booking_request.itinerary) %>
+              <%= booking_request.booking_status %>
+            </div>
+          <% end %>
         </div>
-     <% end %>
+    </div>
+
 </main>
